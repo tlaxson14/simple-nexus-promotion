@@ -4,7 +4,7 @@ pipeline {
         stage('Retrieve') {
             agent any
             steps {
-                sh 'wget http://nexus.roundtower.io:8081/repository/training05-snapshot/apps/add2vals/1.0/add2vals-1.0'
+                sh 'wget http://nexus.roundtower.io:8081/repository/training5-snapshot/apps/add2vals/1.0/add2vals-1.0'
                 sh 'mv add2vals-1.0 /tmp/add2vals'
             }
         }
@@ -17,7 +17,7 @@ pipeline {
                    nexusUrl: 'nexus.roundtower.io:8081',
                    groupId: 'apps',
                    version: '1.0',
-                   repository: 'training05-release',
+                   repository: 'training5-release',
                    credentialsId: 'NexusDefault',
                    artifacts: [
                        [artifactId: 'add2vals',
